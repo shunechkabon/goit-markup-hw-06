@@ -31,13 +31,13 @@ button {
 }
 
 .section {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 96px;
+    padding-bottom: 96px;
     margin: 0%;
 }
 
 .container {
-    max-width: 1158px;
+    width: 100%;
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
@@ -56,7 +56,6 @@ button {
     overflow: hidden;
 } 
 
-
 /* Header. Logo+navigation */
 
 .header-page {
@@ -64,14 +63,7 @@ button {
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
         0px 1px 1px rgba(46, 47, 66, 0.16),
         0px 1px 6px rgba(46, 47, 66, 0.08);
-}
-
-.header-container {
-    background:  #FFF;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    background: #FFF;
 }
 
 .header-nav {
@@ -101,6 +93,21 @@ button {
     text-transform: uppercase;
 }
 
+.header-button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    display: none;
+}
+
+.header-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 332px;
+}
+
 .header-nav-list {
     display: flex;
     flex-direction: row;
@@ -111,7 +118,7 @@ button {
     color:  #2E2F42;
     font-size: 16px;
     font-weight: 500;
-    letter-spacing: 0.32px;
+    letter-spacing: 0.02em;
     display: block;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -178,7 +185,6 @@ button {
     color: #404BBF;
 }
 
-
 /* Section 1. Hero */
 
 .hero {
@@ -232,7 +238,6 @@ button {
     background-color: #404BBF;
 }
 
-
 /* Section 2. Our strengths */
 
 .strengths-list {
@@ -269,6 +274,8 @@ button {
 
 .strengths-item-text {
     letter-spacing: 0.02em;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 
@@ -437,7 +444,7 @@ button {
     padding: 100px 0;
 }
 
-.footer .container {
+.footer-container {
     display: flex;
     align-items: baseline;
 }
@@ -578,8 +585,12 @@ button {
     width: 100%;
     height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
+    display: none;
 } 
 
+.backdrop.is-open {
+    display: block;
+}
 
 .modal {
     position: absolute;
@@ -761,4 +772,170 @@ button {
     margin: 24px auto;
     padding: 16px 32px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Media. Mobile */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .container {
+        width: 318px;
+    }
+    /* Header. Logo+navigation */
+    
+    .header-page {
+        position: relative;
+    }
+
+    .header-button {
+        display: inline-flex;
+    }
+
+    .header-icon-cross {
+        display: none;
+    }
+    
+    .header-button.is-open .header-icon-burger {
+        display: none;
+    }
+    
+    .header-button.is-open .header-icon-cross {
+        display: block;
+    }
+
+    .header-menu {
+        display: block;
+        /* display: none; */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #FFF;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .header-menu.is-open {
+        display: flex;
+    }
+
+    .header-nav-list {
+        flex-direction: column;
+        margin-bottom: 168px;
+        margin-top: 24px;
+    }
+
+    .header-nav-item {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.1;
+        padding: 0;
+    }
+
+    .header-nav-link::after {
+        display: none;
+    }
+
+    .header-address {
+        flex-direction: column-reverse;
+        gap: 24px;
+    }
+
+    .header-address-item {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+
+    /* .logo-web.is-open {
+        display: none;
+    } */
+
+
+    /* Section 2. Our strengths */
+
+    .strengths-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 72px;
+    }
+
+    .strengths-item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .strengths-item-icon {
+        display: none;
+    }
+
+    .strengths-item-title {
+        font-size: 36px;
+        font-weight: 700;
+        align-self: center;
+    }
+
+    .strengths-item-text {
+        font-weight: 500;
+    }
+
+    /* Section 3. Our team */
+
+    .team-list {
+        flex-direction: column;
+        gap: 72px;
+    }
+
+    .team-item {
+        width: 100%;
+    }
+
+    /* Section 4. Our Portfolio */
+    
+    .portfolio-list {
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .portfolio-item {
+        width: 100%;
+    }
+
+    /* Footer */
+
+    .footer-container {
+        flex-direction: column;
+        gap: 72px;
+    }
+
+    .footer-form {
+        flex-direction: column;
+    }
+
+    .footer-third-column {
+        margin-left: 0;
+    }
+}
+
+/* Media. Tablet */
+
+@media screen and (min-width: 768px) and (max-width: 1157px) {
+    .container {
+        width: 736px;
+    }
+}
+
+/* Media. Desktop */
+
+@media screen and (min-width: 1158px) {
+    .section {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .container {
+        width: 1158px;
+    }
 }
