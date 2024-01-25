@@ -22,6 +22,7 @@ ul {
 
 img {
     display: block;
+    max-width: 100%;
 }
 
 input,
@@ -80,6 +81,9 @@ button {
     line-height: 1.17;
     letter-spacing: 0.54px;
     text-transform: uppercase;
+}
+
+.header-nav .logo-web {
     margin-right: 76px;
 }
 
@@ -98,6 +102,9 @@ button {
     padding: 0;
     border: none;
     background-color: transparent;
+    position: absolute;
+    top: 16px;
+    right: 16px;
     display: none;
 }
 
@@ -183,6 +190,13 @@ button {
 
 .header-address-item:focus {
     color: #404BBF;
+}
+
+.header-icons-list {
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    display: none;
 }
 
 /* Section 1. Hero */
@@ -774,17 +788,41 @@ button {
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Media. Resolution */
+
+@media screen and (min-resolution: 192dpi) {
+    .hero {
+        background-image: linear-gradient(to bottom,
+            rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)), url('../images/background-img@2.jpg');
+    }
+}
 
 /* Media. Mobile */
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .container {
-        width: 318px;
+        max-width: 767px;
     }
     /* Header. Logo+navigation */
     
     .header-page {
         position: relative;
+    }
+
+    .header-nav {
+        height: 56px;
+    }
+
+    .header-nav .logo-web {
+        padding-top: 18px;
+        padding-bottom: 18px;
+        position: absolute;
+        left: 16px;
+    }
+
+    .header-nav .logo-web.is-open {
+        display: none;
     }
 
     .header-button {
@@ -804,8 +842,7 @@ button {
     }
 
     .header-menu {
-        display: block;
-        /* display: none; */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -813,10 +850,11 @@ button {
         background: #FFF;
         padding-left: 16px;
         padding-right: 16px;
+        padding-bottom: 40px;
     }
 
     .header-menu.is-open {
-        display: flex;
+        display: block;
     }
 
     .header-nav-list {
@@ -839,6 +877,7 @@ button {
     .header-address {
         flex-direction: column-reverse;
         gap: 24px;
+        margin-bottom: 48px;
     }
 
     .header-address-item {
@@ -847,11 +886,30 @@ button {
         line-height: 1.2;
     }
 
+    .header-icons-list {
+        display: flex;
+    }
 
-    /* .logo-web.is-open {
-        display: none;
-    } */
+    /* Section 1. Hero */
 
+    .hero {
+        padding: 72px 0;
+        max-height: 432px;
+        max-width: 767px;
+    }
+
+
+    .hero-title {
+        text-align: center;
+        font-size: 36px;
+        line-height: 1.11;
+        letter-spacing: 0.02em;
+        margin: 0 auto 72px;
+        padding-left: 58px;
+        padding-right: 58px;
+        text-transform: capitalize;
+        width: 288px;
+    }
 
     /* Section 2. Our strengths */
 
@@ -883,6 +941,11 @@ button {
 
     /* Section 3. Our team */
 
+    .team .container {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
     .team-list {
         flex-direction: column;
         gap: 72px;
@@ -890,6 +953,7 @@ button {
 
     .team-item {
         width: 100%;
+        min-height: 428px;
     }
 
     /* Section 4. Our Portfolio */
@@ -907,16 +971,71 @@ button {
 
     .footer-container {
         flex-direction: column;
+        align-items: center;
         gap: 72px;
+    }
+
+    .footer-first-column {
+        margin-right: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo-web-footer {
+        display: block;
+        margin-bottom: 18px;
+        align-self: center;
+    }
+
+    .footer-second-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
     }
 
     .footer-form {
         flex-direction: column;
+        align-items: center;
+        gap: 16px;
     }
 
     .footer-third-column {
         margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+
+    .footer-btn {
+        width: 165px;
+    }
+
+    .footer-input {
+        opacity: 0.3;
+        width: 288px;
+    }
+
+    /* Modal-form */
+
+    .modal {
+        width: 288px;
+        height: 623px;
+    }
+
+        /* .modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            border-radius: 4px;
+            background-color: #FCFCFC;
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.20);
+            padding: 72px 24px 24px 24px;
+            width: 408px;
+            min-height: 584px;
+            flex-shrink: 0;
+            transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 /* Media. Tablet */
